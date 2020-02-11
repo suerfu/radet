@@ -1,0 +1,22 @@
+# macro for batch session
+# under batch session there is no need to execute visualization scripts
+# one only has to set verbosity, initialize run kernal, load gps and run.
+
+/control/verbose 0
+/run/verbose 0
+/process/em/verbose 0
+/tracking/verbose 0
+/vis/verbose 0
+
+#
+# Number of threads (in multi-threaded mode)
+/run/numberOfThreads 4
+
+# Initialize kernel
+/run/initialize
+
+# Load particle information
+/control/execute gps.mac
+
+#  
+/run/beamOn 10

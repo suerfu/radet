@@ -1,0 +1,14 @@
+
+# position of the point source
+/gps/position 0 0 50 mm
+
+# direction of incident primary particle
+/gps/direction 0 0 -1
+
+# kinetic energy
+/gps/energy 2 MeV
+
+# particle type
+/gps/particle e+
+
+
