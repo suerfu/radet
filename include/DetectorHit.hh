@@ -96,8 +96,9 @@ typedef G4THitsCollection<DetectorHit> DetectorHitsCollection;
 extern G4ThreadLocal G4Allocator<DetectorHit>* DetectorHitAllocator;
 
 inline void* DetectorHit::operator new(size_t){
-    if( !DetectorHitAllocator )
+    if( !DetectorHitAllocator ){
         DetectorHitAllocator = new G4Allocator<DetectorHit>;
+    }
 	return (void*) DetectorHitAllocator->MallocSingle();
 }
 

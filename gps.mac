@@ -1,14 +1,24 @@
 
 # position of the point source
-/gps/position 0 0 50 mm
+/gps/pos/type Volume
+/gps/pos/shape Cylinder
+/gps/pos/radius 1 mm
+/gps/pos/halfz 1 mm
+/gps/pos/rot1 0 0 1
+#/gps/pos/rot2 1 0 0
+
+/gps/pos/centre -351.587 0 0 mm
+/gps/pos/confine src_disk
 
 # direction of incident primary particle
-/gps/direction 0 0 -1
+/gps/direction 1 0 0
 
 # kinetic energy
-/gps/energy 2 MeV
+/gps/energy 0 keV
 
 # particle type
-/gps/particle e+
+/gps/particle ion
+#/gps/ion 55 137
+/gps/ion 6 12
 
-
+/run/beamOn 100

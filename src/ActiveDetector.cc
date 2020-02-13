@@ -1,9 +1,9 @@
 
-#include "Detector.hh"
+#include "ActiveDetector.hh"
 #include "DetectorHit.hh"
 
 
-Detector::Detector(G4String sd_name):G4VSensitiveDetector( sd_name ){
+ActiveDetector::ActiveDetector(G4String sd_name):G4VSensitiveDetector( sd_name ){
 
 	collectionID = -1;
 	collectionName.insert( sd_name + "_hitcol" );
@@ -12,10 +12,10 @@ Detector::Detector(G4String sd_name):G4VSensitiveDetector( sd_name ){
 }
 
 
-Detector::~Detector(){}
+ActiveDetector::~ActiveDetector(){}
 
 
-void Detector::Initialize(G4HCofThisEvent* HCE){
+void ActiveDetector::Initialize(G4HCofThisEvent* HCE){
 
 	//if(collectionID<0)
 	//	collectionID = GetCollectionID(0);
@@ -27,7 +27,7 @@ void Detector::Initialize(G4HCofThisEvent* HCE){
 }
 
 
-G4bool Detector::ProcessHits( G4Step* aStep, G4TouchableHistory* ROhist){
+G4bool ActiveDetector::ProcessHits( G4Step* aStep, G4TouchableHistory* ROhist){
 
 	DetectorHit* aHit = new DetectorHit();
 
@@ -48,5 +48,5 @@ G4bool Detector::ProcessHits( G4Step* aStep, G4TouchableHistory* ROhist){
 }
 
 
-void Detector::EndOfEvent(G4HCofThisEvent* HCE){
-}
+void ActiveDetector::EndOfEvent(G4HCofThisEvent* HCE){}
+

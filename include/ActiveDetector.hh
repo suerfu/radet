@@ -1,5 +1,5 @@
-#ifndef DETECTOR_hh
-	#define DETECTOR_hh 1
+#ifndef DETECTOR_HH
+	#define DETECTOR_HH 1
 
 #include "G4VSensitiveDetector.hh"
 #include "G4SDManager.hh"
@@ -11,13 +11,13 @@
 #include "G4String.hh"
 
 
-class Detector: public G4VSensitiveDetector{
+class ActiveDetector: public G4VSensitiveDetector{
 
 public:
 
-	Detector( G4String name);
+	ActiveDetector( G4String name);
 
-	virtual ~Detector();
+	virtual ~ActiveDetector();
 
 	virtual void Initialize( G4HCofThisEvent* HCE);
 

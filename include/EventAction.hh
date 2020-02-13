@@ -1,5 +1,5 @@
-#ifndef EventAction_h
-#define EventAction_h 1
+#ifndef EventAction_HH
+    #define EventAction_HH 1
 
 #include "G4UserEventAction.hh"
 #include "globals.hh"
@@ -11,13 +11,15 @@
 #include "G4Event.hh"
 #include "G4SDManager.hh"
 #include "DetectorHit.hh"
-#include "Detector.hh"
+#include "ActiveDetector.hh"
+
 #include <fstream>
 
-class EventAction : public G4UserEventAction
-{
+
+class EventAction : public G4UserEventAction {
+
 public:
-	EventAction( HistoManager* h );
+	EventAction( /*HistoManager* h*/ );
 
 	~EventAction();
 
@@ -31,7 +33,7 @@ private:
 
 	RunAction* fRunAction;
 
-	HistoManager* histo;
+//	HistoManager* histo;
 };
 
 #endif    

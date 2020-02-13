@@ -20,7 +20,7 @@ public:
 
 	~HistoManager();
    
-    void SetGeometry(  TargetGeometry t ){ geom = t; }
+//    void SetGeometry(  TargetGeometry t ){ geom = t; }
 
     void SetRunID( int i ){ runID = i; }
     int GetRunID(){ return runID; }
@@ -57,7 +57,7 @@ private:
 	string filename;
     ofstream output;
 
-    TargetGeometry geom;
+    //TargetGeometry geom;
 
     int runID;
         // runID is each of command /run/beamOn xxx

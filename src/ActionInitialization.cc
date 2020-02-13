@@ -7,7 +7,7 @@
 #include "TrackingAction.hh"
 
 
-ActionInitialization::ActionInitialization( HistoManager* histo) : G4VUserActionInitialization(), h(histo){}
+ActionInitialization::ActionInitialization( /*HistoManager* histo*/ ) : G4VUserActionInitialization()/*, h( histo)*/{}
 
 
 ActionInitialization::~ActionInitialization(){}
@@ -19,7 +19,7 @@ void ActionInitialization::BuildForMaster() const{
 
 
 void ActionInitialization::Build() const{
-    SetUserAction( new PrimaryGeneratorAction );
+//    SetUserAction( new PrimaryGeneratorAction );
 //    SetUserAction( new RunAction( h ) );
 //    SetUserAction( new EventAction( h ) );
 //    SetUserAction( new TrackingAction( h ) );

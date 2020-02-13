@@ -6,7 +6,10 @@
 
 #include "DetectorGeometry.hh"
 #include "RadiationPhysics.hh"
+
 #include "PrimaryGeneratorAction.hh"
+//#include "ActionInitialization.hh"
+#include "EventAction.hh"
 
 void PrintHelp();
 
@@ -32,22 +35,32 @@ int main(int argc,char** argv){
     // Physics list
     RadiationPhysics* phylist = new RadiationPhysics();
     runman->SetUserInitialization( phylist );
+    
+    // Particle generator
+    runman->SetUserAction( new PrimaryGeneratorAction() );
 
     // User customization
-    runman->SetUserAction( new PrimaryGeneratorAction() );
-    //runman->SetUserInitialization( new ActionInitialization( ) );
-    
+    //runman->SetUserInitialization( new ActionInitialization() );
+    runman->SetUserAction( new EventAction() );
 
     G4UImanager* uiman = G4UImanager::GetUIpointer();
 
     // Detect interactive mode (if no arguments) and define UI session
     if ( argc == 1 ) {
+
+        G4VisManager* visman = new G4VisExecutive;
+        visman->Initialize();
+
         G4UIExecutive* ui = new G4UIExecutive( argc, argv);
-        uiman->ApplyCommand( "/control/execute init.mac" );
+        uiman->ApplyCommand( "/control/execute init_vis.mac" );
             // execute default macro
         ui->SessionStart();
+
         delete ui;
+        delete visman;
     }
+    // Enter batch mode. Note that in batch mode visualization is not enabled.
+    // Do not enter interactive mode by typing "command init_vis.mac"
     else{
         G4String command = "/control/execute ";
         G4String filename = argv[1];

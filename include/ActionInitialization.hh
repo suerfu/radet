@@ -3,14 +3,15 @@
 #define ActionInitialization_h 1
 
 #include "G4VUserActionInitialization.hh"
-#include "HistoManager.hh"
+
+//#include "HistoManager.hh"
 
 
 class ActionInitialization : public G4VUserActionInitialization{
 
 public:
 
-    ActionInitialization( HistoManager* histo);
+    ActionInitialization();
     virtual ~ActionInitialization();
 
     virtual void BuildForMaster() const;
@@ -18,7 +19,7 @@ public:
 
 private:
 
-    HistoManager* h;
+//    HistoManager* h;
 
 };
 
